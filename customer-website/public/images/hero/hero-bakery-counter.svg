@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef7ef"/>
+      <stop offset="100%" stop-color="#ead4bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="38" fill="url(#bg)"/>
+  <rect x="80" y="110" width="1040" height="420" rx="24" fill="#f5ede5"/>
+  <rect x="80" y="530" width="1040" height="120" rx="26" fill="#b97a55"/>
+  <rect x="130" y="160" width="180" height="300" rx="18" fill="#fffdf8"/>
+  <rect x="350" y="160" width="180" height="300" rx="18" fill="#fffdf8"/>
+  <rect x="570" y="160" width="180" height="300" rx="18" fill="#fffdf8"/>
+  <rect x="790" y="160" width="180" height="300" rx="18" fill="#fffdf8"/>
+  <ellipse cx="220" cy="378" rx="70" ry="32" fill="#d48a57"/>
+  <ellipse cx="440" cy="378" rx="66" ry="40" fill="#d7ae66"/>
+  <ellipse cx="660" cy="378" rx="72" ry="26" fill="#c89c5b"/>
+  <ellipse cx="880" cy="378" rx="66" ry="34" fill="#9e603e"/>
+  <circle cx="220" cy="328" r="46" fill="#8f3c25"/>
+  <circle cx="440" cy="324" r="44" fill="#f3cc73"/>
+  <circle cx="660" cy="334" r="42" fill="#e8d8ab"/>
+  <circle cx="880" cy="324" r="46" fill="#d58f5f"/>
+  <text x="120" y="670" fill="#fff7f2" font-family="Georgia, serif" font-size="56" font-weight="700">Bakery Counter Favorites</text>
+  <text x="120" y="720" fill="#fff1e6" font-family="Trebuchet MS, sans-serif" font-size="28">Cakes, breads, puff snacks, and cookies in one storefront.</text>
+</svg>

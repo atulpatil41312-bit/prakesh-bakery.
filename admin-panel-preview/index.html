@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prakash Bakery Admin Preview</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="header">
+        <div>
+          <p class="eyebrow">Admin Preview</p>
+          <h1>Prakash Bakery Admin Panel</h1>
+          <p class="muted">
+            Local preview for testing the owner dashboard UI until the full Laravel runtime is available.
+          </p>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Products: 8</span>
+          <span class="pill">Pending: 3</span>
+          <span class="pill">Free Delivery: 5 km</span>
+        </div>
+      </header>
+
+      <section class="grid metrics">
+        <a class="card metric-link" href="#products">
+          <strong>8</strong>
+          <span>Products</span>
+        </a>
+        <a class="card metric-link" href="#categories">
+          <strong>4</strong>
+          <span>Categories</span>
+        </a>
+        <a class="card metric-link" href="#orders">
+          <strong>3</strong>
+          <span>New orders</span>
+        </a>
+        <a class="card metric-link" href="#revenue">
+          <strong>₹8,240</strong>
+          <span>Delivered revenue</span>
+        </a>
+      </section>
+
+      <section class="grid two-col">
+        <article class="panel" id="orders" tabindex="-1">
+          <div class="section-head">
+            <div>
+              <h2>New Order Notifications</h2>
+              <p class="muted">Owner sees incoming orders here and accepts them.</p>
+            </div>
+          </div>
+          <div class="stack">
+            <div class="notice">
+              <div class="row spread">
+                <div>
+                  <h3>PB-240981</h3>
+                  <p class="muted">Aarav Sharma • 10:00 AM - 12:00 PM</p>
+                </div>
+                <span class="status pending">pending</span>
+              </div>
+              <p>2 x Red Velvet Celebration Cake, 1 x Cashew Butter Cookies</p>
+              <div class="row">
+                <button>Accept Order</button>
+                <button class="ghost">View</button>
+              </div>
+            </div>
+
+            <div class="notice">
+              <div class="row spread">
+                <div>
+                  <h3>PB-240982</h3>
+                  <p class="muted">Sia Patel • 04:00 PM - 06:00 PM</p>
+                </div>
+                <span class="status preparing">preparing</span>
+              </div>
+              <p>6 x Veg Puff, 4 x Paneer Roll</p>
+              <div class="progress-row">
+                <span class="chip done">accepted</span>
+                <span class="chip done">preparing</span>
+                <span class="chip">ready</span>
+                <span class="chip">out for delivery</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="section-head">
+            <div>
+              <h2>Delivery Settings</h2>
+              <p class="muted">Distance pricing, slots, and WhatsApp template preview.</p>
+            </div>
+          </div>
+          <form class="form-grid">
+            <label>
+              Bakery Name
+              <input value="Prakash Bakery" />
+            </label>
+            <label>
+              Free Delivery Radius
+              <input value="5 km" />
+            </label>
+            <label>
+              Charge Per Extra Km
+              <input value="₹18" />
+            </label>
+            <label>
+              Time Slots
+              <textarea>08:00 AM - 10:00 AM
+10:00 AM - 12:00 PM
+12:00 PM - 02:00 PM
+04:00 PM - 06:00 PM
+06:00 PM - 08:00 PM</textarea>
+            </label>
+            <label>
+              WhatsApp Template
+              <textarea>Hello {{name}}, your order {{orderId}} from Prakash Bakery is accepted. Share OTP {{otp}} with the delivery partner on handover.</textarea>
+            </label>
+          </form>
+        </article>
+      </section>
+
+      <section class="panel" id="products" tabindex="-1">
+        <div class="section-head">
+          <div>
+            <h2 id="inventory-heading">All products</h2>
+            <p class="muted" id="inventory-summary" role="status">Showing all 8 preview products. Prices and preparation times are sample values.</p>
+            <button type="button" id="show-all-products" class="ghost">Show all products</button>
+            <button type="button" id="open-product">Add new product</button>
+          </div>
+        </div>
+        <form id="add-product-form" class="form-grid product-editor" hidden>
+          <h3>Add new product</h3>
+          <p class="muted">Saved in this browser's preview only.</p>
+          <label>Category<select name="category" required></select></label>
+          <label>Product name<input name="product_name" required maxlength="120" placeholder="For example: Mango Cream Cake" /></label>
+          <label>Description (optional)<textarea name="description" maxlength="500"></textarea></label>
+          <label>Product image (optional)<input type="file" name="product_image" accept="image/jpeg,image/png,image/webp" aria-describedby="image-help image-message" /></label>
+          <p id="image-help" class="muted">Choose a JPG, PNG or WebP image up to 1 MB. Images are saved in this browser with the product.</p>
+          <p id="image-message" role="status"></p>
+          <img id="product-image-preview" class="product-image" alt="Selected product image preview" hidden />
+          <button type="button" id="remove-product-image" class="ghost" hidden>Remove image</button>
+          <label>Price (INR)<input name="price" type="number" min="0.01" max="999999" step="0.01" required /></label>
+          <label>Unit / weight<input name="unit" required maxlength="60" placeholder="1 kg, piece, pack of 4" /></label>
+          <label>Preparation time (minutes)<input name="prep" type="number" min="0" max="10080" step="1" value="0" required /></label>
+          <label>Availability<select name="availability"><option value="available">Available</option><option value="unavailable">Unavailable</option></select></label>
+          <div class="row"><button type="submit">Save product</button><button type="button" class="ghost" id="cancel-product">Cancel</button></div>
+        </form>
+        <p id="product-message" role="status"></p>
+        <div class="grid inventory">
+          <article class="catalog-card">
+            <span class="tag">Cakes</span>
+            <h3>Red Velvet Celebration Cake</h3>
+            <p>1 kg • 180 mins prep</p>
+            <div class="row spread">
+              <strong>₹799</strong>
+              <span class="status ready">available</span>
+            </div>
+          </article>
+          <article class="catalog-card">
+            <span class="tag">Cakes</span>
+            <h3>Black Forest Cake</h3>
+            <p>Chocolate sponge, cherries and whipped cream.</p>
+            <p>1 kg &bull; 150 mins prep</p>
+            <div class="row spread"><strong>₹699</strong><span class="status ready">available</span></div>
+          </article>
+          <article class="catalog-card">
+            <span class="tag">Cakes</span>
+            <h3>Chocolate Truffle Cake</h3>
+            <p>Chocolate layers with a rich ganache finish.</p>
+            <p>1 kg &bull; 180 mins prep</p>
+            <div class="row spread"><strong>₹849</strong><span class="status ready">available</span></div>
+          </article>
+          <article class="catalog-card">
+            <span class="tag">Cakes</span>
+            <h3>Pineapple Cream Cake</h3>
+            <p>Vanilla sponge with pineapple and fresh cream.</p>
+            <p>1 kg &bull; 150 mins prep</p>
+            <div class="row spread"><strong>₹649</strong><span class="status ready">available</span></div>
+          </article>
+          <article class="catalog-card">
+            <span class="tag">Cakes</span>
+            <h3>Butterscotch Crunch Cake</h3>
+            <p>Caramel cream with crunchy butterscotch pieces.</p>
+            <p>1 kg &bull; 150 mins prep</p>
+            <div class="row spread"><strong>₹749</strong><span class="status ready">available</span></div>
+          </article>
+          <article class="catalog-card">
+            <span class="tag">Snacks</span>
+            <h3>Veg Puff</h3>
+            <p>piece • 25 mins prep</p>
+            <div class="row spread">
+              <strong>₹35</strong>
+              <span class="status ready">available</span>
+            </div>
+          </article>
+          <article class="catalog-card">
+            <span class="tag">Biscuits</span>
+            <h3>Cashew Butter Cookies</h3>
+            <p>250 g • Ready stock</p>
+            <div class="row spread">
+              <strong>₹220</strong>
+              <span class="status ready">available</span>
+            </div>
+          </article>
+          <article class="catalog-card">
+            <span class="tag">Breads</span>
+            <h3>Milk Bread Loaf</h3>
+            <p>loaf • 60 mins prep</p>
+            <div class="row spread">
+              <strong>₹55</strong>
+              <span class="status ready">available</span>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="panel detail-panel" id="categories" tabindex="-1">
+        <h2>Categories</h2>
+        <p class="muted">Organize your products into categories. Added categories are saved in this browser only.</p>
+        <details class="category-editor">
+          <summary>Add new category</summary>
+          <form id="add-category-form" class="form-grid">
+            <label>Category name<input name="category_name" required maxlength="80" placeholder="For example: Pastries" /></label>
+            <label>Description (optional)<textarea name="category_description" maxlength="300" placeholder="Describe the products in this category"></textarea></label>
+            <div class="row"><button type="submit">Save category</button><button type="button" class="ghost" id="cancel-category">Cancel</button></div>
+          </form>
+        </details>
+        <p id="category-message" role="status" class="muted"></p>
+        <div class="grid inventory">
+          <button type="button" class="catalog-card category-button" data-category="Cakes" aria-pressed="false" aria-controls="products"><strong>Cakes</strong><span>Celebration cakes and fresh cream favourites.</span><span class="category-action">View products &rarr;</span></button>
+          <button type="button" class="catalog-card category-button" data-category="Snacks" aria-pressed="false" aria-controls="products"><strong>Snacks</strong><span>Savoury puffs and bakery rolls.</span><span class="category-action">View products &rarr;</span></button>
+          <button type="button" class="catalog-card category-button" data-category="Biscuits" aria-pressed="false" aria-controls="products"><strong>Biscuits</strong><span>Cookies and tea-time biscuits.</span><span class="category-action">View products &rarr;</span></button>
+          <button type="button" class="catalog-card category-button" data-category="Breads" aria-pressed="false" aria-controls="products"><strong>Breads</strong><span>Fresh loaves and buns.</span><span class="category-action">View products &rarr;</span></button>
+        </div>
+      </section>
+      <section class="panel detail-panel" id="revenue" tabindex="-1">
+        <h2>Delivered revenue</h2>
+        <p><strong>₹8,240</strong> — sample dashboard total.</p>
+        <p class="muted">This is demonstration data. Live revenue and delivered order details will be available after the Laravel database is connected.</p>
+        <a href="#orders">View demo orders</a>
+      </section>
+    </main>
+    <script src="admin.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "Prakash Bakery",
+  "short_name": "Prakash Bakery",
+  "description": "Customer-facing bakery PWA for browsing products and placing scheduled orders.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff7ed",
+  "theme_color": "#9c4a2d",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

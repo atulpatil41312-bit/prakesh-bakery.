@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#eef6ef"/>
+      <stop offset="100%" stop-color="#d8ead9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="38" fill="url(#bg)"/>
+  <circle cx="940" cy="120" r="100" fill="#f9ebd8"/>
+  <rect x="180" y="280" width="520" height="280" rx="32" fill="#a75b39"/>
+  <rect x="220" y="240" width="440" height="100" rx="24" fill="#c97b4d"/>
+  <rect x="380" y="340" width="120" height="120" rx="12" fill="#fff9f4"/>
+  <text x="410" y="418" text-anchor="middle" fill="#8f3c25" font-family="Georgia, serif" font-size="54" font-weight="700">PB</text>
+  <circle cx="835" cy="525" r="84" fill="#2e2e2e"/>
+  <circle cx="1015" cy="525" r="84" fill="#2e2e2e"/>
+  <circle cx="835" cy="525" r="42" fill="#ddd"/>
+  <circle cx="1015" cy="525" r="42" fill="#ddd"/>
+  <rect x="650" y="360" width="300" height="90" rx="45" fill="#f7cf7a"/>
+  <text x="800" y="418" text-anchor="middle" fill="#6d3f2b" font-family="Trebuchet MS, sans-serif" font-size="34" font-weight="700">Free delivery within 5 km</text>
+  <text x="120" y="150" fill="#5c6f61" font-family="Georgia, serif" font-size="58" font-weight="700">Quick Local Delivery</text>
+  <text x="120" y="210" fill="#4a5c50" font-family="Trebuchet MS, sans-serif" font-size="30">Simple slot booking with distance-based delivery pricing.</text>
+</svg>

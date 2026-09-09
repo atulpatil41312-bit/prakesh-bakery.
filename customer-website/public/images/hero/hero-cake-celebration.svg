@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff5ec"/>
+      <stop offset="100%" stop-color="#f7d8c6"/>
+    </linearGradient>
+    <linearGradient id="cake" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#8f3c25"/>
+      <stop offset="100%" stop-color="#dd8b5f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="38" fill="url(#bg)"/>
+  <circle cx="950" cy="150" r="120" fill="#f0e2d3"/>
+  <circle cx="180" cy="620" r="140" fill="#f8e5d7"/>
+  <rect x="140" y="500" width="920" height="80" rx="40" fill="#d9aa8b"/>
+  <rect x="280" y="360" width="640" height="140" rx="70" fill="url(#cake)"/>
+  <rect x="350" y="260" width="500" height="120" rx="60" fill="#fff1e8"/>
+  <rect x="420" y="185" width="360" height="90" rx="45" fill="url(#cake)"/>
+  <circle cx="470" cy="210" r="18" fill="#ffd25f"/>
+  <circle cx="600" cy="190" r="18" fill="#ffd25f"/>
+  <circle cx="730" cy="210" r="18" fill="#ffd25f"/>
+  <rect x="462" y="120" width="16" height="80" rx="8" fill="#6d3f2b"/>
+  <rect x="592" y="100" width="16" height="80" rx="8" fill="#6d3f2b"/>
+  <rect x="722" y="120" width="16" height="80" rx="8" fill="#6d3f2b"/>
+  <path d="M470 108c16 12 18 30 0 42-18-12-16-30 0-42Z" fill="#ff9765"/>
+  <path d="M600 88c16 12 18 30 0 42-18-12-16-30 0-42Z" fill="#ff9765"/>
+  <path d="M730 108c16 12 18 30 0 42-18-12-16-30 0-42Z" fill="#ff9765"/>
+  <text x="120" y="135" fill="#8f3c25" font-family="Georgia, serif" font-size="56" font-weight="700">Celebration Cakes</text>
+  <text x="120" y="195" fill="#6b5a51" font-family="Trebuchet MS, sans-serif" font-size="30">Fresh cream, layered sponge, and handcrafted finishes.</text>
+</svg>
