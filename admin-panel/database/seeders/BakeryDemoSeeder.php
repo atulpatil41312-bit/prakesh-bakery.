@@ -28,9 +28,9 @@ class BakeryDemoSeeder extends Seeder
             ["id" => 1],
             [
                 "bakery_name" => "Prakash Bakery",
-                "bakery_address" => "Civil Lines, Prayagraj, Uttar Pradesh",
-                "bakery_latitude" => 25.4358,
-                "bakery_longitude" => 81.8463,
+                "bakery_address" => "Dindoli, Surat, Gujarat 394210",
+                "bakery_latitude" => 21.1525,
+                "bakery_longitude" => 72.8752,
                 "free_delivery_radius_km" => 5,
                 "charge_per_extra_km" => 18,
                 "minimum_prep_notice_hours" => 2,

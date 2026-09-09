@@ -12,7 +12,7 @@
       </label>
       <label>
         Bakery address
-        <textarea name="bakery_address" placeholder="Civil Lines, Prayagraj, Uttar Pradesh">{{ old('bakery_address', $settings?->bakery_address ?? '') }}</textarea>
+        <textarea name="bakery_address" placeholder="Dindoli, Surat, Gujarat 394210">{{ old('bakery_address', $settings?->bakery_address ?? '') }}</textarea>
       </label>
       <label>
         Bakery latitude

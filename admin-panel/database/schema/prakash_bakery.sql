@@ -120,9 +120,9 @@ INSERT INTO delivery_settings (
 ) VALUES (
   1,
   'Prakash Bakery',
-  'Civil Lines, Prayagraj, Uttar Pradesh',
-  25.4358000,
-  81.8463000,
+  'Dindoli, Surat, Gujarat 394210',
+  21.1525000,
+  72.8752000,
   5.00,
   18.00,
   2.00,

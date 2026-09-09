@@ -6,9 +6,9 @@ export const sampleCatalog = {
     minimumPrepNoticeHours: 2,
     bakeryLocation: {
       label: "Prakash Bakery",
-      address: "Civil Lines, Prayagraj, Uttar Pradesh",
-      latitude: 25.4358,
-      longitude: 81.8463,
+      address: "Dindoli, Surat, Gujarat 394210",
+      latitude: 21.1525,
+      longitude: 72.8752,
     },
     timeSlots: [
       "08:00 AM - 10:00 AM",

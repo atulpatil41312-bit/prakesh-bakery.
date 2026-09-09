@@ -22,9 +22,9 @@ class CatalogController extends Controller
                 "minimumPrepNoticeHours" => $settings?->minimum_prep_notice_hours ?? 2,
                 "bakeryLocation" => [
                     "label" => $settings?->bakery_name ?? "Prakash Bakery",
-                    "address" => $settings?->bakery_address ?? "Civil Lines, Prayagraj, Uttar Pradesh",
-                    "latitude" => (float) ($settings?->bakery_latitude ?? 25.4358),
-                    "longitude" => (float) ($settings?->bakery_longitude ?? 81.8463),
+                    "address" => $settings?->bakery_address ?? "Dindoli, Surat, Gujarat 394210",
+                    "latitude" => (float) ($settings?->bakery_latitude ?? 21.1525),
+                    "longitude" => (float) ($settings?->bakery_longitude ?? 72.8752),
                 ],
                 "timeSlots" => $settings?->time_slots ?? [],
             ],

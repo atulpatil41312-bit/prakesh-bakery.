@@ -145,9 +145,9 @@ const locations = ["Prakash Nagar", "Station Road", "Nehru Colony", "Bus Stand",
 const deliverySteps = ["pending", "accepted", "preparing", "ready", "out_for_delivery", "delivered"];
 const fallbackBakeryLocation = {
   label: "Prakash Bakery",
-  address: "Civil Lines, Prayagraj, Uttar Pradesh",
-  latitude: 25.4358,
-  longitude: 81.8463,
+  address: "Dindoli, Surat, Gujarat 394210",
+  latitude: 21.1525,
+  longitude: 72.8752,
 };
 
 const emptyForm = {
