@@ -55,7 +55,7 @@ export default function Storefront({ products, categories, selectedCategory, onC
       <p className="mt-8 max-w-lg leading-relaxed">Celebration cakes, flaky savouries, soft breads and buttery biscuits — baked with warmth for every kind of gathering.</p>
       <div className="mt-8 flex flex-wrap gap-3"><button type="button" onClick={onOrderNow} className="shop-button">Order now</button><a href="#menu-shortcuts" className="shop-button shop-button-light">Explore menu</a><button type="button" onClick={onCustomize} className="shop-button shop-button-light">Customize a cake</button></div>
       <p className="mt-7 text-sm font-bold text-[#4e7450]">A little sweetness · A little comfort · Made for sharing</p></div>
-      <div className="relative"><CustomCakeSlider onCustomize={onCustomize} /><p className="absolute -bottom-5 left-0 max-w-60 rounded-2xl bg-white p-5 text-sm font-bold shadow-lg md:-left-8">Handcrafted celebration cakes, made for your moment.</p></div>
+      <div className="relative"><CustomCakeSlider onCustomize={onCustomize} /></div>
     </div></section>
 
     <section id="menu-shortcuts" className="shop-width py-20"><p className="shop-eyebrow">From our counter</p><h2 className="shop-title">Your everyday favourites, beautifully baked.</h2><p className="mt-5 max-w-xl">Choose a few classics or build a generous spread. Every bake is made to bring a little more joy to the table.</p>
