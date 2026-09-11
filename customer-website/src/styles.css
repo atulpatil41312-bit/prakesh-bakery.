@@ -169,7 +169,16 @@ button { cursor: pointer; }
 .mobile-preview .shop-order > .shop-width { grid-template-columns: 1fr !important; gap: 32px; }
 .mobile-preview .shop-hero > .shop-width { padding-block: 48px; }
 .mobile-preview .shop-hero h1 { font-size: 2.85rem; line-height: 1.03; }
-.mobile-preview .shop-hero-photo { height: 300px; border-radius: 26px; }
+.mobile-preview .shop-cake-slider { padding: 12px; border-radius: 26px; background: #fffaf0; }
+.mobile-preview .shop-cake-slider .shop-hero-photo { height: 340px; border-radius: 18px; background: #f5ead7; }
+.mobile-preview .shop-slider-overlay { position: static; max-width: none; margin-top: 10px; padding: 12px 14px; border-radius: 16px; }
+.mobile-preview .shop-slider-overlay p { font-size: 11px; }
+.mobile-preview .shop-slider-overlay h2 { margin: 0; font-size: 1.3rem; }
+.mobile-preview .shop-slider-overlay button { margin-top: 4px; }
+.mobile-preview .shop-slider-arrow { top: 158px; width: 36px; height: 36px; }
+.mobile-preview .shop-slider-arrow.left { left: 20px; }
+.mobile-preview .shop-slider-arrow.right { right: 20px; }
+.mobile-preview .shop-slider-dots { bottom: 122px; }
 .mobile-preview .shop-hero .relative > p { left: 12px; right: 12px; max-width: none; padding: 16px; }
 .mobile-preview #bestsellers { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px; }
 .mobile-preview .shop-product { border-radius: 22px; }
