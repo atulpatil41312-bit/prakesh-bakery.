@@ -1,4 +1,5 @@
 import OrderHistory from "./OrderHistory";
+import { useEffect, useState } from "react";
 
 const photo = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=85`;
 const photos = {
@@ -17,12 +18,27 @@ const productPhotos = {
   401: photo('photo-1509440159596-0249088772ff'),
   402: photo('photo-1549931319-a545dcf3bc73'),
 };
+const customCakeSlides = [
+  ["princess-castle", "Princess castle cake"], ["animal-garden", "Animal garden cake"], ["train-theme", "Train theme cake"], ["doraemon", "Doraemon cake"], ["doll-garden", "Doll garden cake"], ["race-track", "Race track cake"], ["floral-tier", "Floral tier cake"], ["teddy-bear", "Teddy bear cake"], ["blue-number-one", "Blue number one cake"], ["angry-birds", "Angry birds cake"], ["yellow-doll", "Yellow doll cake"], ["jungle-number-five", "Jungle number five cake"],
+].map(([file, title]) => ({ src: `/images/custom-cakes/${file}.png`, title }));
 
 const productImage = (product) => (
   product.image && !product.image.endsWith('.svg')
     ? product.image
     : productPhotos[product.id] || photos[product.category_id]
 );
+
+function CustomCakeSlider({ onCustomize }) {
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const timer = window.setInterval(() => setActive((current) => (current + 1) % customCakeSlides.length), 4200);
+    return () => window.clearInterval(timer);
+  }, []);
+  const slide = customCakeSlides[active];
+  const move = (direction) => setActive((current) => (current + direction + customCakeSlides.length) % customCakeSlides.length);
+
+  return <div className="shop-cake-slider"><img className="shop-hero-photo" src={slide.src} alt={slide.title} /><div className="shop-slider-overlay"><p className="text-sm font-bold">Custom cake gallery</p><strong className="font-display text-lg">{slide.title}</strong><button type="button" onClick={onCustomize}>Create yours</button></div><button type="button" className="shop-slider-arrow left" onClick={() => move(-1)} aria-label="Previous cake design">‹</button><button type="button" className="shop-slider-arrow right" onClick={() => move(1)} aria-label="Next cake design">›</button><div className="shop-slider-dots" aria-label="Custom cake gallery navigation">{customCakeSlides.map((entry, index) => <button type="button" key={entry.src} onClick={() => setActive(index)} aria-label={`Show ${entry.title}`} aria-current={index === active} />)}</div></div>;
+}
 
 export default function Storefront({ products, categories, selectedCategory, onCategory, addToCart, onOrderNow, onSignup, onCustomize, customer, checkout, tracking, flash, cartCount }) {
   const mobilePreview = new URLSearchParams(window.location.search).has("mobile-preview");
@@ -39,7 +55,7 @@ export default function Storefront({ products, categories, selectedCategory, onC
       <p className="mt-8 max-w-lg leading-relaxed">Celebration cakes, flaky savouries, soft breads and buttery biscuits — baked with warmth for every kind of gathering.</p>
       <div className="mt-8 flex flex-wrap gap-3"><button type="button" onClick={onOrderNow} className="shop-button">Order now</button><a href="#menu-shortcuts" className="shop-button shop-button-light">Explore menu</a><button type="button" onClick={onCustomize} className="shop-button shop-button-light">Customize a cake</button></div>
       <p className="mt-7 text-sm font-bold text-[#4e7450]">A little sweetness · A little comfort · Made for sharing</p></div>
-      <div className="relative"><img className="shop-hero-photo" src={photo('photo-1509440159596-0249088772ff')} alt="Freshly baked breads at the bakery counter" onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/images/hero/hero-bakery-counter.svg'; }} /><p className="absolute -bottom-5 left-0 max-w-60 rounded-2xl bg-white p-5 text-sm font-bold shadow-lg md:-left-8">Baked with old-world comfort, styled for today.</p></div>
+      <div className="relative"><CustomCakeSlider onCustomize={onCustomize} /><p className="absolute -bottom-5 left-0 max-w-60 rounded-2xl bg-white p-5 text-sm font-bold shadow-lg md:-left-8">Handcrafted celebration cakes, made for your moment.</p></div>
     </div></section>
 
     <section id="menu-shortcuts" className="shop-width py-20"><p className="shop-eyebrow">From our counter</p><h2 className="shop-title">Your everyday favourites, beautifully baked.</h2><p className="mt-5 max-w-xl">Choose a few classics or build a generous spread. Every bake is made to bring a little more joy to the table.</p>

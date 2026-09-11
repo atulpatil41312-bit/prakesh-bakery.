@@ -126,6 +126,16 @@ button { cursor: pointer; }
 .shop-eyebrow { color: #c97932; text-transform: uppercase; letter-spacing: .25em; font-weight: 800; font-size: 12px; }
 .shop-title { margin-top: 18px; font-family: var(--font-display); font-weight: 700; font-size: clamp(24px,2.1vw,30px); line-height: 1.35; }
 .shop-hero-photo { width: 100%; height: 560px; object-fit: cover; border-radius: 32px; }
+.shop-cake-slider { position: relative; overflow: hidden; border-radius: 32px; box-shadow: 0 18px 38px rgba(87, 30, 54, .16); background: #f6eddd; }
+.shop-cake-slider .shop-hero-photo { display: block; border-radius: 0; transition: opacity .35s ease; }
+.shop-slider-overlay { position: absolute; inset: auto 14px 14px; display: grid; gap: 2px; padding: 14px 16px; border-radius: 18px; background: rgba(87,30,54,.88); color: #fffaf0; backdrop-filter: blur(8px); }
+.shop-slider-overlay p { margin: 0; color: #f8d379; }
+.shop-slider-overlay button { justify-self: start; margin-top: 7px; padding: 7px 11px; border: 1px solid rgba(255,255,255,.45); border-radius: 999px; background: transparent; color: white; font-size: 12px; font-weight: 700; }
+.shop-slider-arrow { position: absolute; top: 45%; display: grid; width: 38px; height: 38px; place-items: center; border: 0; border-radius: 50%; background: rgba(255,255,255,.88); color: #571e36; font-size: 28px; line-height: 1; cursor: pointer; }
+.shop-slider-arrow.left { left: 14px; }.shop-slider-arrow.right { right: 14px; }
+.shop-slider-dots { position: absolute; right: 15px; bottom: 16px; display: flex; gap: 5px; }
+.shop-slider-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.5); cursor: pointer; }
+.shop-slider-dots button[aria-current="true"] { width: 20px; border-radius: 99px; background: #f8d379; }
 .shop-filter { border: 1px solid #ebdeda; border-radius: 999px; padding: 10px 18px; font-size: 12px; font-weight: 700; background: #fffdf8; }
 .shop-filter.is-active { background: #571e36; color: white; box-shadow: 0 5px 12px #571e3620; }
 .shop-product { display: flex; flex-direction: column; overflow: hidden; border-radius: 24px; background: #fff8ec; border: 1px solid #f5eddf; }
