@@ -24,7 +24,7 @@ const productImage = (product) => (
     : productPhotos[product.id] || photos[product.category_id]
 );
 
-export default function Storefront({ products, categories, selectedCategory, onCategory, addToCart, onOrderNow, onSignup, customer, checkout, tracking, flash, cartCount }) {
+export default function Storefront({ products, categories, selectedCategory, onCategory, addToCart, onOrderNow, onSignup, onCustomize, customer, checkout, tracking, flash, cartCount }) {
   const mobilePreview = new URLSearchParams(window.location.search).has("mobile-preview");
 
   return <div className={`shop-shell${mobilePreview ? " mobile-preview" : ""}`}>
@@ -37,7 +37,7 @@ export default function Storefront({ products, categories, selectedCategory, onC
     <section className="shop-hero"><div className="shop-width grid items-center gap-12 py-16 md:grid-cols-2 md:py-24">
       <div className="shop-reveal"><p className="shop-eyebrow">Contemporary Indian bakery</p><h1 className="mt-6 font-display text-4xl font-bold leading-tight lg:text-5xl">Freshly Baked. Truly Indian.</h1>
       <p className="mt-8 max-w-lg leading-relaxed">Celebration cakes, flaky savouries, soft breads and buttery biscuits — baked with warmth for every kind of gathering.</p>
-      <div className="mt-8 flex gap-3"><button type="button" onClick={onOrderNow} className="shop-button">Order now</button><a href="#menu-shortcuts" className="shop-button shop-button-light">Explore menu</a></div>
+      <div className="mt-8 flex flex-wrap gap-3"><button type="button" onClick={onOrderNow} className="shop-button">Order now</button><a href="#menu-shortcuts" className="shop-button shop-button-light">Explore menu</a><button type="button" onClick={onCustomize} className="shop-button shop-button-light">Customize a cake</button></div>
       <p className="mt-7 text-sm font-bold text-[#4e7450]">A little sweetness · A little comfort · Made for sharing</p></div>
       <div className="relative"><img className="shop-hero-photo" src={photo('photo-1509440159596-0249088772ff')} alt="Freshly baked breads at the bakery counter" onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/images/hero/hero-bakery-counter.svg'; }} /><p className="absolute -bottom-5 left-0 max-w-60 rounded-2xl bg-white p-5 text-sm font-bold shadow-lg md:-left-8">Baked with old-world comfort, styled for today.</p></div>
     </div></section>

@@ -21,6 +21,14 @@ html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 .product-image { width: 100%; height: 190px; object-fit: contain; background: #fff; border-radius: 14px; margin-bottom: 14px; }
 select { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: white; color: var(--ink); font: inherit; }
 .category-editor { margin: 20px 0; }
+.custom-request { border: 1px solid var(--line); border-radius: 20px; background: rgba(255,255,255,.72); padding: 18px; }
+.custom-request-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, .75fr); gap: 18px; margin-top: 14px; }
+.custom-request-image { width: 100%; max-height: 220px; border-radius: 16px; object-fit: cover; background: #f8e6d8; }
+.chat-message { padding: 10px 12px; border-radius: 14px; margin: 8px 0; font-size: .92rem; line-height: 1.5; }
+.chat-message.customer { background: #f8e6d8; }
+.chat-message.bot { background: #edf3e9; }
+.chat-message.admin { background: #f6dfbf; }
+.quote-form { display: grid; gap: 10px; }
 .category-editor summary { cursor: pointer; color: var(--primary); font-weight: bold; padding: 12px 0; }
 .category-editor form { max-width: 600px; padding-block: 16px; }
 .category-button { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; text-align: left; color: var(--ink); font: inherit; background: var(--surface); border-radius: 24px; }
@@ -247,4 +255,6 @@ textarea {
   .pill-row {
     grid-template-columns: 1fr;
   }
+
+  .custom-request-grid { grid-template-columns: 1fr; }
 }

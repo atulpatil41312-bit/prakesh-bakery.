@@ -1,4 +1,61 @@
 const productSection = document.getElementById("products");
+const customRequestsKey = "prakash-bakery-custom-requests";
+const escapeHtml = value => String(value ?? "").replace(/[&<>'"]/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
+
+function loadCustomRequests() {
+  try {
+    const requests = JSON.parse(localStorage.getItem(customRequestsKey) || "[]");
+    return Array.isArray(requests) ? requests : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCustomRequests(requests) {
+  localStorage.setItem(customRequestsKey, JSON.stringify(requests));
+}
+
+function renderCustomRequests() {
+  const list = document.getElementById("custom-request-list");
+  const message = document.getElementById("custom-request-message");
+  const count = document.getElementById("custom-request-count");
+  const requests = loadCustomRequests();
+  list.replaceChildren();
+  count.textContent = `${requests.filter(request => !request.quote).length} new requests`;
+  if (!requests.length) {
+    message.textContent = "No custom cake requests yet. Requests from the customer site will appear here.";
+    return;
+  }
+  message.textContent = "Quotations are stored in this browser demo and shown to the customer on the same deployed site.";
+  requests.forEach(request => {
+    const card = document.createElement("article");
+    card.className = "custom-request";
+    const chat = (request.messages || []).map(entry => `<p class="chat-message ${entry.from === "admin" || entry.from === "bot" ? entry.from : "customer"}"><strong>${escapeHtml(entry.from)}:</strong> ${escapeHtml(entry.text)}</p>`).join("");
+    const image = typeof request.image === "string" && /^data:image\/(jpeg|png|webp);base64,/.test(request.image) ? `<img class="custom-request-image" src="${request.image}" alt="Customer cake reference" />` : "<p class=\"muted\">No reference image uploaded.</p>";
+    card.innerHTML = `<div class="row spread"><div><h3>${escapeHtml(request.id)} · ${escapeHtml(request.customerName)}</h3><p class="muted">${escapeHtml(request.phone)} · ${escapeHtml(request.occasion)} · ${escapeHtml(request.servings || "servings not specified")} · Budget: ${escapeHtml(request.budget || "not specified")}</p></div><span class="status ${request.quote ? "ready" : "pending"}">${escapeHtml(request.status)}</span></div><div class="custom-request-grid"><div><p class="muted"><strong>Requirement:</strong> ${escapeHtml(request.message)}</p>${chat}</div><div>${image}</div></div>`;
+    const form = document.createElement("form");
+    form.className = "quote-form";
+    form.innerHTML = `<label>Quotation amount (INR)<input name="amount" type="number" min="1" value="${request.quote?.amount || ""}" required /></label><label>Reply to customer<textarea name="note" required>${request.quote?.note || ""}</textarea></label><button type="submit">${request.quote ? "Update quotation" : "Send quotation"}</button>`;
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const amount = Number(form.elements.amount.value);
+      const note = form.elements.note.value.trim();
+      if (!Number.isFinite(amount) || amount <= 0 || !note) return;
+      const next = loadCustomRequests().map(item => item.id === request.id ? {
+        ...item,
+        status: "quotation sent",
+        quote: { amount, note },
+        messages: [...(item.messages || []).filter(entry => entry.from !== "admin"), { from: "admin", text: `Quotation ₹${amount}: ${note}` }],
+      } : item);
+      saveCustomRequests(next);
+      renderCustomRequests();
+    });
+    card.append(form);
+    list.append(card);
+  });
+}
+
+renderCustomRequests();
 const cards = [...productSection.querySelectorAll(".catalog-card")];
 const categoryButtons = [...document.querySelectorAll("[data-category]")];
 let activeCategory = null;

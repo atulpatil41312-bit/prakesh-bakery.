@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Storefront from "./Storefront";
+import CustomCakeDialog from "./CustomCakeDialog";
 import { getCatalog, placeOrder, trackOrdersByPhone } from "./services/customerApi";
 
 const quickLinks = [
@@ -286,6 +287,7 @@ function App() {
   const [customer, setCustomer] = useState(readSavedCustomer);
   const [signupForm, setSignupForm] = useState(emptySignupForm);
   const [signupError, setSignupError] = useState("");
+  const [customCakeOpen, setCustomCakeOpen] = useState(false);
 
   useEffect(() => {
     getCatalog()
@@ -445,6 +447,30 @@ function App() {
     scrollToSection("checkout-rail");
   }
 
+  function acceptCustomQuote(request) {
+    const productId = `custom-${request.id}`;
+    setCatalog((current) => ({
+      ...current,
+      products: current.products.some((product) => product.id === productId)
+        ? current.products
+        : [...current.products, {
+            id: productId,
+            category_id: 1,
+            name: `Custom Cake · ${request.occasion}`,
+            description: request.quote.note || request.message,
+            price: Number(request.quote.amount),
+            unit: request.servings || "custom cake",
+            badge: "Custom order",
+            image: request.image || "",
+            is_available: true,
+          }],
+    }));
+    setCart((current) => current.some((item) => item.productId === productId) ? current : [...current, { productId, quantity: 1 }]);
+    setCustomCakeOpen(false);
+    setOrderFlash("Custom cake quotation accepted. Complete your order details below.");
+    window.setTimeout(() => scrollToSection("checkout-rail"), 0);
+  }
+
   function openAddressModal() {
     setAddressModalOpen(true);
     setAddressQuery(form.delivery_address || "");
@@ -597,7 +623,7 @@ function App() {
     <main id="hero-top">
       <Storefront products={featuredProducts} categories={catalog.categories} selectedCategory={selectedCategory}
         onCategory={(id) => { setSelectedCategory(id); setSearchTerm(""); }} addToCart={addToCart}
-        onOrderNow={openOrderMethod} onSignup={openSignup} customer={customer} cartCount={cartRows.reduce((sum, row) => sum + row.quantity, 0)} flash={orderFlash}
+        onOrderNow={openOrderMethod} onSignup={openSignup} onCustomize={() => setCustomCakeOpen(true)} customer={customer} cartCount={cartRows.reduce((sum, row) => sum + row.quantity, 0)} flash={orderFlash}
         checkout={<aside id="checkout-rail" className="xl:sticky xl:top-28 xl:self-start">
             <div className="rounded-[2.2rem] border border-white/60 bg-[rgba(250,243,220,0.94)] p-6 shadow-[0_24px_60px_rgba(104,72,32,0.1)] sm:p-7">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between xl:flex-col xl:items-start">
@@ -889,6 +915,8 @@ function App() {
                 ))}
               </div>
             </section>} />
+
+      <CustomCakeDialog open={customCakeOpen} onClose={() => setCustomCakeOpen(false)} customer={customer} onAcceptQuote={acceptCustomQuote} />
 
       {signupOpen ? (
         <div className="fixed inset-0 z-50 grid place-items-center bg-[rgba(45,32,25,0.5)] px-5 py-6" role="dialog" aria-modal="true" aria-labelledby="signup-title">
