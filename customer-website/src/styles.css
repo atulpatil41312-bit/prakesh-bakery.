@@ -154,6 +154,18 @@ button { cursor: pointer; }
 .shop-reveal { animation: shop-arrive .65s ease-out both; }
 @keyframes shop-arrive { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 767px) { .shop-width { width: calc(100% - 36px); } .shop-hero-photo { height: 360px; } .shop-checkout form { grid-template-columns: 1fr; } .shop-product > img { height: 240px; } }
+@media (max-width: 767px) {
+  .shop-cake-slider { padding: 12px; border-radius: 26px; background: #fffaf0; }
+  .shop-cake-slider .shop-hero-photo { height: 340px; border-radius: 18px; background: #f5ead7; }
+  .shop-slider-overlay { position: static; max-width: none; margin-top: 10px; padding: 12px 14px; border-radius: 16px; }
+  .shop-slider-overlay p { font-size: 11px; }
+  .shop-slider-overlay h2 { margin: 0; font-size: 1.3rem; }
+  .shop-slider-overlay button { margin-top: 4px; }
+  .shop-slider-arrow { top: 158px; width: 36px; height: 36px; }
+  .shop-slider-arrow.left { left: 20px; }
+  .shop-slider-arrow.right { right: 20px; }
+  .shop-slider-dots { bottom: 122px; }
+}
 .mobile-preview { width: min(100%, 430px); min-height: 100vh; margin-inline: auto; overflow: hidden; background: #fffdf8; box-shadow: 0 0 0 1px rgba(87,30,54,.1), 0 18px 60px rgba(87,30,54,.14); }
 .mobile-preview .shop-width { width: calc(100% - 36px); }
 .mobile-preview .shop-header { position: fixed; top: 0; width: min(100%, 430px); padding-block: 10px 8px; box-shadow: 0 6px 18px rgba(87, 30, 54, .08); }
