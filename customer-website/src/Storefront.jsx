@@ -20,7 +20,7 @@ const productPhotos = {
 };
 const customCakeSlides = [
   ["princess-castle", "Princess castle cake"], ["animal-garden", "Animal garden cake"], ["train-theme", "Train theme cake"], ["doraemon", "Doraemon cake"], ["doll-garden", "Doll garden cake"], ["race-track", "Race track cake"], ["floral-tier", "Floral tier cake"], ["teddy-bear", "Teddy bear cake"], ["blue-number-one", "Blue number one cake"], ["angry-birds", "Angry birds cake"], ["yellow-doll", "Yellow doll cake"], ["jungle-number-five", "Jungle number five cake"],
-].map(([file, title]) => ({ src: `/images/custom-cakes/${file}.png`, title }));
+].map(([file, title]) => ({ src: `${import.meta.env.BASE_URL}images/custom-cakes/${file}.png`, title }));
 
 const productImage = (product) => (
   product.image && !product.image.endsWith('.svg')
