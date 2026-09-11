@@ -126,8 +126,8 @@ button { cursor: pointer; }
 .shop-eyebrow { color: #c97932; text-transform: uppercase; letter-spacing: .25em; font-weight: 800; font-size: 12px; }
 .shop-title { margin-top: 18px; font-family: var(--font-display); font-weight: 700; font-size: clamp(24px,2.1vw,30px); line-height: 1.35; }
 .shop-hero-photo { width: 100%; height: 560px; object-fit: cover; border-radius: 32px; }
-.shop-cake-slider { position: relative; isolation: isolate; overflow: hidden; border-radius: 32px; box-shadow: 0 18px 38px rgba(87, 30, 54, .16); background: #f6eddd; }
-.shop-slider-backdrop { position: absolute; inset: -28px; width: calc(100% + 56px); height: calc(100% + 56px); object-fit: cover; filter: blur(22px) saturate(.85); opacity: .48; }
+.shop-cake-slider { position: relative; isolation: isolate; width: min(100%, 440px); margin-inline: auto; overflow: hidden; border-radius: 32px; box-shadow: 0 18px 38px rgba(87, 30, 54, .16); background: #fffaf0; }
+.shop-slider-backdrop { display: none; }
 .shop-cake-slider .shop-hero-photo { position: relative; z-index: 1; display: block; border-radius: 0; object-fit: contain; transition: opacity .35s ease; }
 .shop-slider-overlay { position: absolute; z-index: 2; top: 14px; left: 14px; display: grid; max-width: 220px; gap: 2px; padding: 12px 14px; border-radius: 18px; background: rgba(87,30,54,.88); color: #fffaf0; backdrop-filter: blur(8px); }
 .shop-slider-overlay p { margin: 0; color: #f8d379; }
