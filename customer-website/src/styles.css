@@ -156,6 +156,14 @@ button { cursor: pointer; }
 @keyframes shop-arrive { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 767px) { .shop-width { width: calc(100% - 36px); } .shop-hero-photo { height: 360px; } .shop-checkout form { grid-template-columns: 1fr; } .shop-product > img { height: auto; aspect-ratio: 4 / 3; } }
 @media (max-width: 767px) {
+  #bestsellers { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px; }
+  .shop-product { border-radius: 22px; }
+  .shop-product > div { padding: 14px; }
+  .shop-product h3 { margin-top: 9px; font-size: 1.1rem; line-height: 1.15; }
+  .shop-product p { font-size: .78rem; }
+  .shop-product p.mt-3 { margin-top: 9px; line-height: 1.45; }
+  .shop-product p.my-4 { margin-block: 12px; font-size: .8rem; }
+  .shop-product .shop-button { min-height: 39px; padding: 8px; font-size: 11px; }
   .shop-cake-slider { padding: 12px; border-radius: 26px; background: #fffaf0; }
   .shop-slider-backdrop { display: none; }
   .shop-cake-slider .shop-hero-photo { height: 340px; border-radius: 18px; background: #f5ead7; object-fit: contain; }
